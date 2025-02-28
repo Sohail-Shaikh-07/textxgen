@@ -1,4 +1,3 @@
-
 # TextxGen
 
 **TextxGen** is a Python package that provides a seamless interface to interact with **OpenRouter** models. It supports chat-based conversations and text completions using predefined models. The package is designed to be simple, modular, and easy to use, making it ideal for developers who want to integrate OpenRouter models into their applications.
@@ -24,11 +23,13 @@
 You can install TextxGen in one of two ways:
 
 ### Option 1: Install via `pip`
+
 ```bash
 pip install textxgen
 ```
 
 ### Option 2: Clone the Repository
+
 1. Clone the repository from GitHub:
    ```bash
    git clone https://github.com/Sohail-Shaikh-07/textxgen.git
@@ -42,12 +43,12 @@ pip install textxgen
    pip install .
    ```
 
-
 ---
 
 ## Usage
 
 ### 1. Chat Example
+
 Use the `ChatEndpoint` to interact with chat-based models.
 
 ```python
@@ -83,6 +84,7 @@ if __name__ == "__main__":
 ```
 
 **Output:**
+
 ```
 === Chat Response ===
 The capital of France is Paris.
@@ -91,6 +93,7 @@ The capital of France is Paris.
 ---
 
 ### 2. Completions Example
+
 Use the `CompletionsEndpoint` to generate text completions.
 
 ```python
@@ -120,6 +123,7 @@ if __name__ == "__main__":
 ```
 
 **Output:**
+
 ```
 === Completion Response ===
 Once upon a time, in a land far, far away...
@@ -128,6 +132,7 @@ Once upon a time, in a land far, far away...
 ---
 
 ### 3. Listing Supported Models
+
 Use the `ModelsEndpoint` to list and retrieve supported models.
 
 ```python
@@ -152,6 +157,7 @@ if __name__ == "__main__":
 ```
 
 **Output:**
+
 ```
 === Supported Models ===
 llama3: meta-llama/llama-3.1-8b-instruct:free
@@ -170,21 +176,41 @@ You can enable streaming for real-time responses by setting `stream=True`.
 ```python
 from textxgen import ChatEndpoint
 
+# Initialize the ChatEndpoint
 chat = ChatEndpoint()
+
+# Define the conversation messages
+messages = [
+    {"role": "user", "content": "What is the capital of France?"},
+]
+
+# Add a system prompt (optional)
+system_prompt = "You are a helpful assistant."
+
+# Send the chat request with streaming
+print("=== Chat Response (Streaming) ===")
 response_stream = chat.chat(
-    messages=[{"role": "user", "content": "What is the capital of France?"}],
+    messages=messages,
     model="llama3",
+    system_prompt=system_prompt,
+    temperature=0.7,
+    max_tokens=100,
     stream=True,  # Enable streaming
 )
 
-# Print each chunk of the streaming response
+# Process the streaming response
 for chunk in response_stream:
     if "choices" in chunk and len(chunk["choices"]) > 0:
         content = chunk["choices"][0].get("delta", {}).get("content", "")
-        print(content, end="", flush=True)
+        if content:
+            print(content, end="", flush=True)
+
+print("\n")
 
 ```
+
 **Output:**
+
 ```
 The capital of France is Paris.
 ```
@@ -194,21 +220,36 @@ The capital of France is Paris.
 ```python
 from textxgen import CompletionsEndpoint
 
+# Initialize the CompletionsEndpoint
 completions = CompletionsEndpoint()
+
+# Define the input prompt
+prompt = "Once upon a time"
+
+# Send the completion request with streaming
+print("=== Completion Response (Streaming) ===")
 response_stream = completions.complete(
-    prompt="Once upon a time",
+    prompt=prompt,
     model="phi3",
+    temperature=0.7,
+    max_tokens=100,
     stream=True,  # Enable streaming
 )
 
-# Print each chunk of the streaming response
+# Process the streaming response
 for chunk in response_stream:
     if "choices" in chunk and len(chunk["choices"]) > 0:
+        # Extract the generated text from the response
         text = chunk["choices"][0].get("text", "")
-        print(text, end="", flush=True)
+        if text:
+            print(text, end="", flush=True)
+
+print("\n")
 
 ```
+
 **Output:**
+
 ```
 Once upon a time, in a land far, far away...
 ```
@@ -219,11 +260,11 @@ Once upon a time, in a land far, far away...
 
 TextxGen currently supports the following models:
 
-| Model Name                | Model ID                                   |
-|---------------------------|--------------------------------------------|
-| LLaMA 3 (8B Instruct)     | `meta-llama/llama-3.1-8b-instruct:free`    |
-| Phi-3 Mini (128K Instruct)| `microsoft/phi-3-mini-128k-instruct:free`  |
-| DeepSeek Chat             | `deepseek/deepseek-chat:free`              |
+| Model Name                 | Model ID                                  |
+| -------------------------- | ----------------------------------------- |
+| LLaMA 3 (8B Instruct)      | `meta-llama/llama-3.1-8b-instruct:free`   |
+| Phi-3 Mini (128K Instruct) | `microsoft/phi-3-mini-128k-instruct:free` |
+| DeepSeek Chat              | `deepseek/deepseek-chat:free`             |
 
 ---
 
@@ -236,6 +277,7 @@ TextxGen provides robust error handling for common issues:
 - **Unsupported Models**: Raised when an unsupported model is requested.
 
 **Example:**
+
 ```python
 from textxgen.exceptions import InvalidInputError
 
@@ -266,5 +308,4 @@ TextxGen is licensed under the MIT License. See the [LICENSE](LICENSE) file for 
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Sohail-Shaikh-07/textxgen).
-
 
