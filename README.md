@@ -261,12 +261,11 @@ Once upon a time, in a land far, far away...
 
 TextxGen currently supports the following models:
 
-| Model Name                 | Description                              |
-| -------------------------- | ---------------------------------------- |
-| LLaMA 3 (8B Instruct)      | A powerful 8-billion parameter model for general-purpose tasks. |
-| Phi-3 Mini (128K Instruct) | A lightweight yet capable model optimized for efficiency.       |
-| DeepSeek Chat              | A conversational model designed for interactive chat.           |
-
+| Model Name                 | Model ID                                  | Description                                              |
+| -------------------------- | ---------------------------------------- | -------------------------------------------------------- |
+| LLaMA 3 (8B Instruct)      | `llama3`                                 | A powerful 8-billion parameter model for general-purpose tasks. |
+| Phi-3 Mini (128K Instruct) | `phi3`                                  | A lightweight yet capable model optimized for efficiency.       |
+| DeepSeek Chat              | `deepseek`                              | A conversational model designed for interactive chat.           |
 
 ---
 
