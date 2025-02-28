@@ -232,7 +232,7 @@ TextxGen currently supports the following models:
 TextxGen provides robust error handling for common issues:
 
 - **Invalid Input**: Raised when invalid input is provided (e.g., empty messages or prompts).
-- **API Errors**: Raised when the OpenRouter API returns an error (e.g., network issues or invalid requests).
+- **API Errors**: Raised when the API returns an error (e.g., network issues or invalid requests).
 - **Unsupported Models**: Raised when an unsupported model is requested.
 
 **Example:**
