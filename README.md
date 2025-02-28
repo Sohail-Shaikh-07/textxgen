@@ -8,9 +8,9 @@
 
 - **Predefined API Key**: No need to provide your own API key—TextxGen uses a predefined key internally.
 - **Supported Models**: Access popular models like:
-  - `meta-llama/llama-3.1-8b-instruct:free`
-  - `microsoft/phi-3-mini-128k-instruct:free`
-  - `deepseek/deepseek-chat:free`
+  - `meta-llama/llama-3.1-8b-instruct`
+  - `microsoft/phi-3-mini-128k-instruct`
+  - `deepseek/deepseek-chat`
 - **Chat and Completions**: Supports both chat-based conversations and text completions.
 - **System Prompts**: Add system-level prompts to guide model interactions.
 - **Error Handling**: Robust exception handling for API failures, invalid inputs, and network issues.
@@ -136,35 +136,36 @@ Once upon a time, in a land far, far away...
 Use the `ModelsEndpoint` to list and retrieve supported models.
 
 ```python
+# examples/models_example.py
+
 from textxgen import ModelsEndpoint
 
 def main():
+    """
+    Example usage of the ModelsEndpoint to list and retrieve supported models.
+    """
     # Initialize the ModelsEndpoint
     models = ModelsEndpoint()
 
-    # List all supported models
+    # List all supported models with display names
     print("=== Supported Models ===")
-    for model_name, model_id in models.list_models().items():
-        print(f"{model_name}: {model_id}")
+    for model_name, display_name in models.list_display_models().items():
+        print(f"{model_name}: {display_name}")
 
-    # Retrieve a specific model ID
-    model_name = "llama3"
-    model_id = models.get_model(model_name)
-    print(f"\nModel ID for '{model_name}': {model_id}")
 
 if __name__ == "__main__":
     main()
+
 ```
 
 **Output:**
 
 ```
 === Supported Models ===
-llama3: meta-llama/llama-3.1-8b-instruct:free
-phi3: microsoft/phi-3-mini-128k-instruct:free
-deepseek: deepseek/deepseek-chat:free
+llama3: LLaMA 3 (8B Instruct)
+phi3: Phi-3 Mini (128K Instruct)
+deepseek: DeepSeek Chat
 
-Model ID for 'llama3': meta-llama/llama-3.1-8b-instruct:free
 ```
 
 ### 4. Streaming Example
@@ -260,11 +261,12 @@ Once upon a time, in a land far, far away...
 
 TextxGen currently supports the following models:
 
-| Model Name                 | Model ID                                  |
-| -------------------------- | ----------------------------------------- |
-| LLaMA 3 (8B Instruct)      | `meta-llama/llama-3.1-8b-instruct:free`   |
-| Phi-3 Mini (128K Instruct) | `microsoft/phi-3-mini-128k-instruct:free` |
-| DeepSeek Chat              | `deepseek/deepseek-chat:free`             |
+| Model Name                 | Description                              |
+| -------------------------- | ---------------------------------------- |
+| LLaMA 3 (8B Instruct)      | A powerful 8-billion parameter model for general-purpose tasks. |
+| Phi-3 Mini (128K Instruct) | A lightweight yet capable model optimized for efficiency.       |
+| DeepSeek Chat              | A conversational model designed for interactive chat.           |
+
 
 ---
 
@@ -308,4 +310,3 @@ TextxGen is licensed under the MIT License. See the [LICENSE](LICENSE) file for 
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Sohail-Shaikh-07/textxgen).
-
