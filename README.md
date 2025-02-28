@@ -267,5 +267,4 @@ TextxGen is licensed under the MIT License. See the [LICENSE](LICENSE) file for 
 
 If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/Sohail-Shaikh-07/textxgen).
 
-```
 
