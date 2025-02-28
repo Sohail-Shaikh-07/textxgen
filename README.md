@@ -1,6 +1,6 @@
 # TextxGen
 
-**TextxGen** is a Python package that provides a seamless interface to interact with **OpenRouter** models. It supports chat-based conversations and text completions using predefined models. The package is designed to be simple, modular, and easy to use, making it ideal for developers who want to integrate OpenRouter models into their applications.
+**TextxGen** is a Python package that provides a seamless interface to interact with **Large Language models**. It supports chat-based conversations and text completions using predefined models. The package is designed to be simple, modular, and easy to use, making it ideal for developers who want to integrate llm models into their applications.
 
 ---
 
