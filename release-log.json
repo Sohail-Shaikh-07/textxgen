@@ -6,7 +6,7 @@
     {
       "version": "1.0.3",
       "releasedOn": "2025-11-22",
-      "time": "02:20 AM IST",
+      "time": "04:20 AM IST",
       "type": "Release",
       "note": "Deployed version 1.0.3 and added access to 20+ models."
     },
@@ -27,7 +27,7 @@
     {
       "version": "deployment-site-update",
       "releasedOn": "2025-11-28",
-      "time": "02:00 AM IST",
+      "time": "02:20 AM IST",
       "type": "Deployment",
       "note": "Deployed new version of pystack.site with a redesigned interface and added status section support."
     }
