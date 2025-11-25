@@ -25,7 +25,7 @@
       "note": "Fixed backend logic errors and deployed correction patch."
     },
     {
-      "version": "deployment-site-update",
+      "version": "1.0.4 deployment-site-update",
       "releasedOn": "2025-11-28",
       "time": "02:20 AM IST",
       "type": "Deployment",
