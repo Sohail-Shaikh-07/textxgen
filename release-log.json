@@ -26,8 +26,8 @@
     },
     {
       "version": "1.0.4 deployment-site-update",
-      "releasedOn": "2025-11-27",
-      "time": "02:20 AM IST",
+      "releasedOn": "2025-11-26",
+      "time": "05:30 AM IST",
       "type": "Deployment",
       "note": "Deployed new version of pystack.site with a redesigned interface and added status section support."
     }
